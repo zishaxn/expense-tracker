@@ -16,6 +16,7 @@ const App = () => {
         const response = await fetch(getTransactions);
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setTransactions(data);
         } else {
           throw new Error("Failed to fetch transactions");

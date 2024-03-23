@@ -16,22 +16,28 @@ module.exports.getTransactions = async (req, res, next) => {
 // @route  POST /api/v1/transactions
 // @access public
 module.exports.addTransaction = async (req, res, next) => {
+  console.log(req.body);
   try {
-    const { id, text, amount } = req.body; // Assuming request body contains id, text, and amount
+    const { text, amount } = req.body; // Assuming request body contains id, text, and amount
+
+    console.log(text, amount);
 
     // Create a new transaction object
     const newTransaction = new Transaction({
-      id,
       text,
       amount,
     });
+
+    console.log("hhh", newTransaction);
 
     // Save the new transaction to the database
     const savedTransaction = await newTransaction.save();
 
     // Respond with the saved transaction
+    console.log("okuuu");
     res.status(201).json(savedTransaction);
   } catch (error) {
+    console.error(error);
     // If an error occurs, respond with a 500 status code and an error message
     res.status(500).json({ error: "Server Error" });
   }

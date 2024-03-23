@@ -1,4 +1,4 @@
-import { deleteTransaction } from "../utils/APIRoutes";
+import { deleteTransaction } from "../utils/APIRoutes"; // Import deleteTransaction function
 
 const History = ({ transactions, setTransactions }) => {
   const handleDelete = async (id) => {

@@ -18,12 +18,13 @@ const AddTransaction = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: Math.floor(Math.random() * 100000),
           text,
           amount: +amount,
         }),
       });
+      console.log(response);
       if (response.ok) {
+        console.log(response);
         // Assuming you want to reload the transactions after adding a new one
         window.location.reload();
       } else {
